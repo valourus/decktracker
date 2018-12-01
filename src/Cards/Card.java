@@ -1,18 +1,14 @@
 package Cards;
 
-import java.awt.image.BufferedImage;
-
 public class Card {
 	private String name;
 	private int deckPos;
 
 	private int cost;
-	private BufferedImage img;
 
-	public Card(String name, int cost, BufferedImage img) {
+	public Card(String name, int cost) {
 		this.name = name;
 		this.cost = cost;
-		this.img = img;
 	}
 
 	public String getName() {
@@ -23,8 +19,8 @@ public class Card {
 		return cost;
 	}
 
-	public BufferedImage getImg() {
-		return img;
+	public String getFilename() {
+		return  System.getProperty("user.dir") + "\\src\\indexer\\images\\" +  name.toLowerCase().replaceAll("\b", "_") + ".png";
 	}
 
 	public int getDeckPos() {
@@ -33,5 +29,13 @@ public class Card {
 
 	public void setDeckPos(int deckPos) {
 		this.deckPos = deckPos;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 }

@@ -1,13 +1,9 @@
 package Utils;
 
-import java.awt.AWTException;
-import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Robot;
 import java.awt.image.BufferedImage;
-import java.awt.Toolkit;
 import java.io.File;
-import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
@@ -16,7 +12,7 @@ public class ImageSearcher {
 		BufferedImage image = null;
 		try {
 			image = new Robot().createScreenCapture(location);
-			ImageIO.write(image, "jpg", new File("screenshot.jpg"));
+			ImageIO.write(image, "png", new File("screenshot.png"));
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -29,7 +25,8 @@ public class ImageSearcher {
 				for (int a = 0; a < bi.getWidth(); a++) {
 					l = y;
 					for (int b = 0; b < bi.getHeight(); b++) {
-						if (bi.getRGB(a, b) != image.getRGB(k, l)) {
+						int color = image.getRGB(k, l);
+						if (bi.getRGB(a, b) > image.getRGB(k, l) * 0.9999 && bi.getRGB(a, b) < color * 1.0001) {
 							invalid = true;
 							break;
 						} else {
