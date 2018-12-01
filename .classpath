@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="libs/lucene-queryparser-5.2.1.jar"/>
 	<classpathentry kind="lib" path="libs/lucene-sandbox-5.2.1.jar"/>
 	<classpathentry kind="lib" path="libs/opencv-2.4.9-7.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_191/lib/ext/jfxrt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

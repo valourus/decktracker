@@ -20,7 +20,8 @@ public class Card {
 	}
 
 	public String getFilename() {
-		return  System.getProperty("user.dir") + "\\src\\indexer\\images\\" +  name.toLowerCase().replaceAll("\b", "_") + ".png";
+		return System.getProperty("user.dir") + "\\src\\indexer\\images\\" + name.toLowerCase().replaceAll(" ", "_")
+				+ ".png";
 	}
 
 	public int getDeckPos() {

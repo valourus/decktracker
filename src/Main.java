@@ -1,19 +1,24 @@
 
+
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
+
 import Cards.CardFactory;
-import Controllers.LogicController;
 import Utils.Coords;
 import Utils.Images;
 import Utils.Resource;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+public class Main extends Application
+ {
 
-public class Application {
-
-	public Application() {
+	public Main() {
 		HashMap<Images, BufferedImage> images = new HashMap<Images, BufferedImage>();
 		HashMap<Coords, Rectangle> coords = new HashMap<Coords, Rectangle>();
-
 
 		coords.put(Coords.ABOVE_FIRST_CARD, new Rectangle(483, 25, 30, 30));
 		coords.put(Coords.ABOVE_SECOND_CARD, new Rectangle(530, 25, 30, 30));
@@ -34,15 +39,23 @@ public class Application {
 		coords.put(Coords.EIGHTH_CARD, new Rectangle(805, 55, 40, 50));
 
 		coords.put(Coords.OPPONENT_DECK, new Rectangle(473, 42, 384, 65));
-		
+
 		Resource.setCoords(coords);
 		Resource.setImages(images);
 		Resource.setCards(CardFactory.createCards());
-		new LogicController();
 	}
 
 	public static void main(String[] args) {
-		new Application();
+		Application.launch(args);
 	}
 
+	@Override
+	public void start(Stage stage) throws Exception {
+		Parent x = FXMLLoader.load(getClass().getResource("resources/UI.fxml"));
+        Scene scene = new Scene(x, 600, 550);
+
+        stage.setTitle("FXML Welcome");
+        stage.setScene(scene);
+        stage.show();
+	}
 }

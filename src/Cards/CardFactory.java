@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CardFactory {
 	public static ArrayList<Card> createCards() {
-		ArrayList<Card> cards = new ArrayList<>();
+		ArrayList<Card> cards = new ArrayList<Card>();
 
 		cards.add(new Card("Archers", 3));
 		cards.add(new Card("Arrows", 3));
@@ -61,8 +61,12 @@ public class CardFactory {
 		cards.add(new Card("Valkyrie", 4));
 		cards.add(new Card("Witch", 5));
 		cards.add(new Card("Wizzard", 5));
+		cards.add(new Card("Rage", 2));
+		cards.add(new Card("Sparky", 6));
+		cards.add(new Card("Ice Golem", 2));
 		cards.add(new Card("Zap", 2));
-		
+		cards.add(new Card("Elite Barbarians", 6));
+		cards.add(new Card("Royale Ghost", 3));
 		return cards;
 	}
 }
