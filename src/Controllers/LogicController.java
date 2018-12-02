@@ -11,8 +11,10 @@ import Cards.Card;
 import Tasks.CheckCardsPlaced;
 import Tasks.ElixerGain;
 import Tasks.GetCardInfo;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -44,19 +46,30 @@ public class LogicController {
 	private Button subElixerBtn;
 	@FXML
 	private Button addElixerBtn;
+	@FXML
+	private Button stopBtn;
+	@FXML
+	private Label elixerLabel;
 	
-	private float elixer = 1;
+	private float elixer = 5;
 	private ArrayList<Card> hand;
 	private LinkedList<Card> upComming;
-	private Timer timer = new Timer();
-
+	private Timer timer;
+	private float starTime;
+	
 	public void initialize() {
 		startBtn.setOnMouseClicked(e -> start());
 		subElixerBtn.setOnMouseClicked(e -> { elixer -= 1;});
 		addElixerBtn.setOnMouseClicked(e -> addElixer(1));
+		stopBtn.setOnMouseClicked(e -> stop());
 	}
 	
+	private void stop() {
+		timer.cancel();
+	}
+
 	public void start() {
+		starTime = System.currentTimeMillis();
 		hand = new ArrayList<>();
 		upComming = new LinkedList<>();
 		for (int i = 0; i < 4; i++)
@@ -64,6 +77,9 @@ public class LogicController {
 		for (int i = 0; i < 4; i++)
 			upComming.add(new Card("UNKNOWN", 0));
 		updateCards();
+		ElixerGain.triggered = false;
+		ElixerGain.isDoubleElixerTriggered = false;
+		timer = new Timer();
 		timer.scheduleAtFixedRate(new CheckCardsPlaced(this), 0, 500);
 		timer.scheduleAtFixedRate(new ElixerGain(this), 0, 280);
 	}
@@ -120,9 +136,13 @@ public class LogicController {
 	public void updateElixerBar() {
 		if(elixer / 10 < 0) {
 			elixerCounter.setProgress(0);
-			elixer = 0;
-		} else
+		} else {
 			elixerCounter.setProgress(elixer / 10);
+		}
+		Platform.runLater(() -> { 
+			float x = Math.round(elixer*10);
+			elixerLabel.setText(Float.toString(x/10));
+		});
 	}
 	
 	public float getElixer() {
@@ -136,4 +156,9 @@ public class LogicController {
 		if(this.elixer == 10)return;
 		this.elixer += elixer;
 	}
+
+	public float getStarTime() {
+		return starTime;
+	}
+	
 }

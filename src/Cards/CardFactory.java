@@ -32,6 +32,7 @@ public class CardFactory {
 		cards.add(new Card("Heal", 3));
 		cards.add(new Card("Hog Rider", 4));
 		cards.add(new Card("Ice Wizzard", 3));
+		cards.add(new Card("Ice Golem", 2));
 		cards.add(new Card("Inferno Dragon", 3));
 		cards.add(new Card("Inferno Tower", 5));
 		cards.add(new Card("Knight", 3));
@@ -67,6 +68,19 @@ public class CardFactory {
 		cards.add(new Card("Zap", 2));
 		cards.add(new Card("Elite Barbarians", 6));
 		cards.add(new Card("Royale Ghost", 3));
+		cards.add(new Card("Executioner", 5));
+		cards.add(new Card("Night Witch", 4));
+		cards.add(new Card("Goblin Hut", 5));
+		cards.add(new Card("Pekka", 7));
+		cards.add(new Card("freez", 4));
+		cards.add(new Card("Giant", 5));
+		cards.add(new Card("Bomber", 3));
+		cards.add(new Card("Elixer Collector", 6));
+		cards.add(new Card("Ice Spirit", 1));
+		cards.add(new Card("Tesla", 4));
+		cards.add(new Card("xbow", 6));
+		cards.add(new Card("skeletons", 1));
+		cards.add(new Card("Bandit", 3));
 		return cards;
 	}
 }

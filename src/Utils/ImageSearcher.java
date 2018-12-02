@@ -49,11 +49,11 @@ public class ImageSearcher {
 		return false; // If no image is found
 
 	}
-
 	public static int[] searchForColor(Rectangle loc, int searchColor) {
 		BufferedImage bi = null;
 		try {
 			bi = new Robot().createScreenCapture(loc);
+//			ImageIO.write(bi, "png", new File(++x + "screenshot.png"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

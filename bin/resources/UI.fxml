@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -42,6 +44,12 @@
             <Button fx:id="addElixerBtn" layoutX="308.0" layoutY="109.0" mnemonicParsing="false" text="+1" />
             <Button fx:id="subElixerBtn" layoutX="259.0" layoutY="109.0" mnemonicParsing="false" text="-1" />
             <Button fx:id="startBtn" layoutX="273.0" layoutY="194.0" mnemonicParsing="false" text="Start" />
+            <Button fx:id="stopBtn" layoutX="274.0" layoutY="232.0" mnemonicParsing="false" text="stop" />
+            <Label fx:id="elixerLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="13.0" prefHeight="66.0" prefWidth="416.0" text="Label" textAlignment="CENTER" textFill="#ff00bf">
+               <font>
+                  <Font size="38.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
   </items>
 </SplitPane>

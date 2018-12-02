@@ -29,6 +29,8 @@ public class Main extends Application
 		coords.put(Coords.ABOVE_SEVENTH_CARD, new Rectangle(764, 25, 30, 30));
 		coords.put(Coords.ABOVE_EIGHTH_CARD, new Rectangle(809, 25, 30, 30));
 
+		coords.put(Coords.TWOX_ELIXER, new Rectangle(672, 319, 50, 50));
+		
 		coords.put(Coords.FIRST_CARD, new Rectangle(480, 55, 40, 50));
 		coords.put(Coords.SECOND_CARD, new Rectangle(528, 55, 40, 50));
 		coords.put(Coords.THIRD_CARD, new Rectangle(575, 55, 40, 50));
